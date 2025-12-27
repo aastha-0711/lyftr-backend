@@ -7,12 +7,17 @@ stores them idempotently, and exposes analytics, metrics, and health endpoints.
 The service is fully Dockerized and designed with security, correctness,
 and observability in mind.
 
+---
+
 ## Tech Stack
 
 - Python 3.11
 - FastAPI
 - SQLite
 - Docker & Docker Compose
+
+---
+
 
 ## Project Structure
 
@@ -27,6 +32,9 @@ Dockerfile
 docker-compose.yml  
 requirements.txt  
 README.md  
+
+---
+
 ## 🚀 How to Run
 
 docker compose up -d --build
@@ -36,6 +44,9 @@ http://localhost:8000
 
 Interactive API documentation:
 http://localhost:8000/docs
+
+---
+
 ## 📌 API Endpoints
 
 ### POST `/webhook`
@@ -75,6 +86,7 @@ Returns aggregate analytics:
 - `/health/live` — Liveness probe  
 - `/health/ready` — Readiness probe (checks DB and environment)
 
+---
 
 ## ⚙️ Environment Variables
 
@@ -82,3 +94,6 @@ Returns aggregate analytics:
 | -------------- | --------------------------------------- |
 | DATABASE_URL   | SQLite database file path               |
 | WEBHOOK_SECRET | Secret for webhook signature validation |
+
+
+---
