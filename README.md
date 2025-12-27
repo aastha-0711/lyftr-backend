@@ -27,60 +27,50 @@ Dockerfile
 docker-compose.yml  
 requirements.txt  
 README.md  
-
-## How to Run
+## 🚀 How to Run
 
 docker compose up -d --build
+
 The service will be available at:
-
-arduino
-Copy code
 http://localhost:8000
-Interactive API documentation:
 
-bash
-Copy code
+Interactive API documentation:
 http://localhost:8000/docs
-API Endpoints
+
+## 📌 API Endpoints
+
 POST /webhook
 Validates HMAC signature using X-Signature
-
 Validates request payload schema
-
 Validates E.164 phone numbers
-
 Stores messages idempotently
-
 Returns 200 OK for duplicate messages
 
-GET /messages
+## GET /messages
+
 Supports pagination (limit, offset)
+Supports filtering by:
+sender
+timestamp
+text query
 
-Supports filtering by sender, timestamp, and text query
+## GET /stats
 
-GET /stats
 Returns aggregate analytics:
-
 Total messages
-
 Unique senders
-
 Top senders
+First message timestamp
+Last message timestamp
 
-First and last message timestamps
+## ❤️ Health Checks
 
-GET /metrics
-Exposes in-memory counters in text/plain format
-
-Designed for Prometheus-style scraping
-
-Health Checks
 /health/live — Liveness probe
-
 /health/ready — Readiness probe (checks DB and environment)
 
-Environment Variables
-Variable	Description
-DATABASE_URL	SQLite database path
-WEBHOOK_SECRET	Secret used for HMAC verification
-LOG_LEVEL	Logging level (default: INFO)
+## ⚙️ Environment Variables
+
+| Variable       | Description                             |
+| -------------- | --------------------------------------- |
+| DATABASE_URL   | SQLite database file path               |
+| WEBHOOK_SECRET | Secret for webhook signature validation |
